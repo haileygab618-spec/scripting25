@@ -1,0 +1,137 @@
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #282d6d;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul li a:link, nav ul li a:visited {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 19px 30px;
+  text-decoration: none;
+  /*change the font size*/
+    font-size: 16pt;
+    /*default font*/
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-style: italic;
+  
+}
+
+nav ul li a:hover {
+  background-color: #000222;
+}
+
+/******links******/
+
+/* unvisited link */
+a:link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap'); 
+
+header, #about{
+    background-color: blueviolet;
+    padding: 100px;
+    text-align: center;
+    font-size: 70px;
+    color: white;
+    margin-bottom: 0px;
+
+}
+
+footer{
+    background-color: blueviolet;
+    padding: 100px;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+    margin-bottom: 0px;
+
+}
+
+Body{
+    background: #d7b2eb;
+    background: linear-gradient(0deg, rgba(215, 178, 235, 1) 0%, rgba(167, 0, 250, 1) 47%, rgba(70, 0, 105, 1) 100%);
+    margin: 0%;
+    padding: 0%;
+}
+
+section{
+
+  text-align: left;
+    background-color: rgb(173, 155, 199); 
+    max-width: 1000px;
+    margin: auto;
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    font-size: 15pt;
+    overflow: hidden;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 2px 2px 13px 5px rgba(0,0,0,0.75); 
+    box-shadow: 2px 2px 13px 5px rgba(0,0,0,0.75); 
+    /*rounded corners*/
+    -webkit-border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    border-radius: 20px 20px 20px 20px;
+    font-family: "Merriweather", serif;
+    font-optical-sizing: auto;
+    font-weight: 335;
+    font-style: normal;
+
+
+}
+
+section img{
+
+    float: left;
+    /*pushes the text off the side of the pictures*/
+    padding-right: 20px;
+   
+}
+
+.altColour{
+    background-color: rgb(39, 7, 137);
+    /*opacity: 0.5; */
+}
+
+/******links******/
+
+/* unvisited link */
+a:link {
+  color: rgb(33, 19, 80);
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: rgb(15, 3, 24);
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(226, 200, 255);
+}
+
+/* selected link */
+a:active {
+  color: rgb(227, 113, 255);
+} 
+
+/****columns****/
+.container{
+display: grid;
+grid-template-columns: subgrid;
+}
+
+
+
