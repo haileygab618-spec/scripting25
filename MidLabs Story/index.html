@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Moonridge Magic Academy: Mad Libs Story</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- bootstrap 5 css -->
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet"
+>
+
+<!-- custom css -->
+<link rel="stylesheet" href="CSS/style.css">
+</head>
+<body class="bg-magic">
+
+<!-- bootstrap 5 js -->
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<!-- external js -->
+<script src="script.js"></script>
+
+<header class="py-4 mb-4 shadow-sm bg-header">
+    <div class="container text-center">
+        <h1 class="mb-2 story-title">Moonridge Magic Academy: Potion Mishap Mad Libs</h1>
+            <p class="lead mb-0">
+                Help Aria (or your own character) survive their first day at Moonridge Magic Academy.
+            </p>
+    </div>
+</header>
+
+<main class="container mb-5">
+    <div class="row g-4">
+    <!-- intro and form -->
+<section class="col-lg-6">
+    <div class="card card-glass h-100">
+        <div class="card-body">
+            <h2 class="h4 mb-3">Fill out the potion mishap form</h2>
+            <p class="small text-muted mb-4">
+                Enter your words below, choose how the potion turns out, and then click
+<strong>Generate Story</strong> to see what happens in class.
+</p>
+
+<form id="madLibForm" onsubmit="generateStory(event)">
+    <!-- character basics -->
+        <div class="mb-3">
+            <label for="protagonistName" class="form-label">Main character name</label>
+            <input type="text" class="form-control" id="protagonistName" placeholder="Aria">
+        </div>
+
+<div class="mb-3">
+    <label for="pronounSet" class="form-label">Pronouns</label>
+        <select class="form-select" id="pronounSet">
+            <option value="she" selected>she / her</option>
+            <option value="he">he / him</option>
+            <option value="they">they / them</option>
+    </select>
+</div>
+
+<div class="mb-3">
+    <label for="academyName" class="form-label">Magic academy name</label>
+        <input type="text" class="form-control" id="academyName" placeholder="Moonridge Magic Academy">
+</div>
+
+<!-- the hallway chaos -->
+<div class="mb-3">
+    <label for="objectToTripOver" class="form-label">Funny object to trip over</label>
+    <input type="text" class="form-control" id="objectToTripOver" placeholder="rubber chicken">
+</div>
+
+<div class="mb-3">
+    <label for="creature" class="form-label">Creature in the hallway</label>
+    <input type="text" class="form-control" id="creature" placeholder="tiny goblin">
+</div>
+
+<div class="mb-3">
+    <label for="foodItem" class="form-label">Food on their tray</label>
+    <input type="text" class="form-control" id="foodItem" placeholder="blueberry muffins">
+</div>
+
+<!-- classroom setup -->
+<div class="mb-3">
+    <label for="professorName" class="form-label">Professor's name</label>
+    <input type="text" class="form-control" id="professorName" placeholder="Professor Willowthorn">
+</div>
+
+<div class="mb-3">
+    <label for="className" class="form-label">Class name</label>
+    <input type="text" class="form-control" id="className" placeholder="Potion Crafting">
+</div>
+
+<div class="mb-3">
+    <label for="potionContainer" class="form-label">Potion container</label>
+    <input type="text" class="form-control" id="potionContainer" placeholder="glittering potion bottle">
+</div>
+
+<div class="mb-3">
+    <label for="numberOfDrops" class="form-label">Number of drops to add</label>
+    <input type="number" class="form-control" id="numberOfDrops" placeholder="7" min="1">
+</div>
+
+<div class="mb-3">
+    <label for="boomWord" class="form-label">Funny explosion sound word</label>
+    <input type="text" class="form-control" id="boomWord" placeholder="BOOM">
+</div>
+
+<!-- potion result -->
+<div class="mb-3">
+    <label for="sparklesColor" class="form-label">Sparkles colour</label>
+        <input type="text" class="form-control" id="sparklesColor" placeholder="pink sparkles">
+</div>
+
+
+<div class="mb-3">
+    <label for="transformedCreature" class="form-label">What everyone turns into</label>
+    <input type="text" class="form-control" id="transformedCreature" placeholder="fluffy bunnies">
+</div>
+
+<div class="mb-3">
+    <label for="eventName" class="form-label">School event to compare to</label>
+    <input type="text" class="form-control" id="eventName" placeholder="Winter Festival">
+</div>
+
+<!-- radio buttons: potion outcome -->
+<fieldset class="mb-3">
+    <legend class="fs-6 mb-2">How does the potion go?</legend>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="outcome" id="outcomeSuccess" value="success" checked>
+    <label class="form-check-label" for="outcomeSuccess">
+        Surprisingly successful (sparkly but safe)
+</label>
+    </div>
+   
+    
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="outcome" id="outcomeDisaster" value="disaster">
+    <label class="form-check-label" for="outcomeDisaster">
+Total disaster (cute chaos everywhere)
+</label>
+</div>
+</fieldset>
+
+<button type="submit" class="btn btn-primary w-100 mt-2">
+<p>Generate Story</p>
+</button>
+</form>
+        </div>
+    </div>
+</section>
+
+<!-- story output -->
+<section class="col-lg-6">
+    <div class="card card-glass h-100">
+        <div class="card-body">
+            <h2 class="h4 mb-3">Your Potion Story</h2>
+                <p class="small text-muted">
+                    Your generated story will appear here. You can change the inputs on the left and click
+                    <strong>Generate Story</strong> again to remix your scene.
+                </p>
+
+    <hr>
+<div id="storyOutput" class="story-output">
+    <p class="text-muted fst-italic">
+        Fill out the form and let the magic unfold…
+    </p>
+</div>
+        </div>
+    </div>
+</section>
+</div>
+</main>
+
+<footer class="py-3 text-center small text-muted">
+    &copy; <span id="yearSpan"></span> Moonridge Magic Academy
+</footer>
+
+</body>
+</html>
